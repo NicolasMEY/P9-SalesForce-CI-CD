@@ -4,5 +4,5 @@ trigger CalculMontant on Order (before insert, before update) {
 	}
 }
 
-// Traitement bulkifié pour tous les orders par seulement 1
+// Traitement bulkifié pour tous les orders et pas seulement 1
 // Ajout du before insert pour le calcul dès la création
