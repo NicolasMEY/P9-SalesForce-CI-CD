@@ -1,4 +1,4 @@
-global class UpdateAllAccounts implements Database.Batchable<sObject>{
+global class BatchRecalculateAccountRevenue implements Database.Batchable<sObject>{
     
     global Database.QueryLocator start(Database.BatchableContext info){ 
         //Requeter seulement les comptes qui ont au moins une commande avec le Status 'Activated' ==> ok
