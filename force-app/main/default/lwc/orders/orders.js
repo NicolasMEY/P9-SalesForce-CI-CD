@@ -1,24 +1,23 @@
-import { LightningElement, api, wire } from 'lwc';
-import getSumOrderByAccount from '@salesforce/apex/MyTeamOrdersController.getSumOrdersByAccount';
+import { LightningElement, api, wire } from "lwc";
+import getSumOrderByAccount from "@salesforce/apex/MyTeamOrdersController.getSumOrdersByAccount";
 // TODO - récupérer la méthode apex permettant de faire ce calcul
 
 export default class Orders extends LightningElement {
-    @api recordId;
-    sumOrdersOfCurrentAccount;
+  @api recordId;
+  @api sumOrdersOfCurrentAccount;
 
-    // liaison automatique et réactive aux changements
-    @wire(getSumOrderByAccount, {accountId: '$recordId'})
-    wireSumOrders({error, data}) {
-        if (data !== undefined) {
-            this.sumOrdersOfCurrentAccount = data;
-        } else if (error) {
-            this.sumOrdersOfCurrentAccount = null;
-            console.error('Error fetching sum of orders: ', error);
-        }
+  // liaison automatique et réactive aux changements
+  @wire(getSumOrderByAccount, { accountId: "$recordId" })
+  wireSumOrders({ error, data }) {
+    if (data !== undefined) {
+      this.sumOrdersOfCurrentAccount = data;
+    } else if (error) {
+      this.sumOrdersOfCurrentAccount = null;
+      console.error("Error fetching sum of orders: ", error);
     }
-    
-    
-    /*
+  }
+
+  /*
     // contrôler manuellement quand appeler l’Apex (par exemple uniquement au chargement avec connectedCallback),
     connectedCallback() {
         this.fetchSumOrders();
