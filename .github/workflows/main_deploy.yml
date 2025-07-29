@@ -58,7 +58,7 @@ jobs:
             --jwt-key-file server.key \
             --username $SF_USERNAME \
             --alias ci-org \
-            --instance-url https://test.salesforce.com
+            --instance-url https://login.salesforce.com
 
       # Étape 7 : Générer le delta de métadonnées (diff entre HEAD et origin/dev)
       - name: Generate metadata delta pull request
