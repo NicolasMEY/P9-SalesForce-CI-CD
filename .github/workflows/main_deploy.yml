@@ -46,12 +46,16 @@ jobs:
 
       # Étape 6 : Authentification via JWT avec les identifiants secrets GitHub
       - name: Authentification Salesforce
+        env:
+          SF_SERVER_KEY: ${{ secrets.SF_SERVER_KEY }}
+          SF_CONSUMER_KEY: ${{ secrets.SF_CONSUMER_KEY }}
+          SF_USERNAME: ${{ secrets.SF_USERNAME }}
         run: |
-          echo "${{ secrets.SF_SERVER_KEY }}" > server.key
+          echo "$SF_SERVER_KEY" > server.key
           sf org login jwt \
-            --client-id ${{ secrets.SF_CONSUMER_KEY }} \
+            --client-id $SF_CONSUMER_KEY \
             --jwt-key-file server.key \
-            --username ${{ secrets.SF_USERNAME }} \
+            --username $SF_USERNAME \
             --alias ci-org \
             --instance-url https://test.salesforce.com
 
