@@ -47,6 +47,7 @@ jobs:
       # Étape 6 : Authentification via JWT avec les identifiants secrets GitHub
       - name: Authentification Salesforce
         env:
+          SFDX_AUTH_URL: ${{ secrets.SFDX_AUTH_URL}}
           SF_SERVER_KEY: ${{ secrets.SF_SERVER_KEY }}
           SF_CONSUMER_KEY: ${{ secrets.SF_CONSUMER_KEY }}
           SF_USERNAME: ${{ secrets.SF_USERNAME }}
