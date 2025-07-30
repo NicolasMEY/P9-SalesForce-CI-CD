@@ -71,6 +71,8 @@ jobs:
 
       # Étape 8 : Couverture des tests Apex
       - name: Run Apex Tests and Get Code Coverage
+        env:
+          SFDX_LOG_LEVEL: DEBUG
         run: |
           sf apex run test \
             --target-org ci-org \
