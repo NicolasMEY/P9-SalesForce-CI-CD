@@ -76,7 +76,7 @@ jobs:
         run: |
           sf apex run test \
             --target-org nsg.meyer699@agentforce.com \
-            --synchronous \
+            --no-streaming \
             --result-format human \
             --code-coverage \
             --output-dir test-results \
