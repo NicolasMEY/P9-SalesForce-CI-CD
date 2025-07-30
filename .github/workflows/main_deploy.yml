@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [20.x]
+        node-version: [24.x]
 
     steps:
       # Étape 1 : Récupérer le code source depuis le repo GitHub
@@ -45,7 +45,7 @@ jobs:
         #echo "y" | npm install sfdx-git-delta@3.3.0 -g
       - name: sf plugins install sfdx-git-delta@v6.0.0
         run: |
-          echo 'y' | sf plugins install sfdx-git-delta@v6.0.0
+          echo 'y' | sf plugins install sfdx-git-delta@latest
 
       # Étape 6 : Authentification via JWT avec les identifiants secrets GitHub
       - name: Authentification Salesforce
