@@ -72,7 +72,7 @@ jobs:
       # Étape 8 : Couverture des tests Apex
       - name: Run Apex Tests and Get Code Coverage
         env:
-          SFDX_LOG_LEVEL: DEBUG
+          SF_LOG_LEVEL: DEBUG
         run: |
           sf apex run test \
             --target-org ci-org \
@@ -80,7 +80,6 @@ jobs:
             --code-coverage \
             --output-dir test-results \
             --wait 30 \
-            --loglevel debug
 
       # Étape 9 : Déployer les métadonnées sur la branche main si applicable
       - name: Deploy metadata to main branch
