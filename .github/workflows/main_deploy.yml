@@ -75,7 +75,7 @@ jobs:
           SF_LOG_LEVEL: DEBUG
         run: |
           sf apex run test \
-            --target-org myAgentForceOrg \
+            --target-org nsg.meyer699@agentforce.com \
             --synchronous \
             --result-format human \
             --code-coverage \
