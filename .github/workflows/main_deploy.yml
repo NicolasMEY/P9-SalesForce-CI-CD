@@ -77,7 +77,7 @@ jobs:
             --result-format human \
             --code-coverage \
             --output-dir test-results \
-            --wait 30
+            --wait 30 \
             --loglevel debug
 
       # Étape 9 : Déployer les métadonnées sur la branche main si applicable
