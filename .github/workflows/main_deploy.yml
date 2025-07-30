@@ -78,6 +78,7 @@ jobs:
             --code-coverage \
             --output-dir test-results \
             --wait 30
+            --loglevel debug
 
       # Étape 9 : Déployer les métadonnées sur la branche main si applicable
       - name: Deploy metadata to main branch
