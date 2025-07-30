@@ -86,9 +86,10 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           sf project deploy start \
-            --manifest .temp/package/package.xml \
-            --source-dir .temp/force-app \
+            --manifest .temp/package/package.xml \ 
             --target-org ci-org \
             --ignore-conflicts \
             --wait 10 \
             --verbose
+
+# --source-dir .temp/force-app \
