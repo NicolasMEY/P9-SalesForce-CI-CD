@@ -69,6 +69,7 @@ jobs:
           mkdir -p .temp
           sfdx sgd:source:delta --to HEAD --from origin/dev --output .temp
 
+
       # Étape 8 : Déployer les métadonnées sur la branche main si applicable & tests Apex
       - name: Deploy metadata to main branch
         if: github.ref == 'refs/heads/main'
