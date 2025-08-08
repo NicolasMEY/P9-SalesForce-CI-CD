@@ -69,19 +69,7 @@ jobs:
           mkdir -p .temp
           sfdx sgd:source:delta --to HEAD --from origin/dev --output .temp
 
-      # Étape 8 : Couverture des tests Apex
-      - name: Run Apex Tests and Get Code Coverage
-        env:
-          SF_LOG_LEVEL: DEBUG
-        run: |
-          sf apex run test \
-            --target-org ci-org \
-            --result-format human \
-            --code-coverage \
-            --output-dir test-results \
-            --wait 60 
-
-      # Étape 9 : Déployer les métadonnées sur la branche main si applicable
+      # Étape 8 : Déployer les métadonnées sur la branche main si applicable
       - name: Deploy metadata to main branch
         if: github.ref == 'refs/heads/main'
         run: |
@@ -90,6 +78,6 @@ jobs:
             --source-dir .temp/force-app \
             --target-org ci-org \
             --ignore-conflicts \
-            --wait 10 \
-            --verbose
-
+            --wait 60 \
+            --verbose \
+            --test-level RunLocalTests
